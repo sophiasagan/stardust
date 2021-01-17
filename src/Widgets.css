@@ -1,0 +1,58 @@
+.widgets {
+  flex: 0.33;
+}
+
+.side__wrapper {
+  padding: 30px;
+}
+
+.side__title {
+  font-family: "DM Sans", sans-serif;
+  color: #5c5e6e;
+  font-size: 15px;
+  font-weight: 600;
+  margin-bottom: 20px;
+}
+
+.user {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+
+.user__img {
+  border-radius: 50%;
+  width: 45px;
+  height: 45px;
+  margin-right: 15px;
+  object-fit: cover;
+  object-position: center;
+}
+
+.user + .user {
+  margin-top: 18px;
+}
+
+.username {
+  font-size: 15px;
+  font-family: "DM Sans", sans-serif;
+}
+
+.user__status {
+  background-color: #7fd222;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  margin-left: auto;
+}
+.user__status.offline {
+  background-color: #606a8d;
+}
+.user__status.idle {
+  background-color: #dd1c20;
+}
+.contacts .username {
+  display: flex;
+  flex: 1;
+  align-items: center;
+}
