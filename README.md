@@ -1,7 +1,7 @@
 # stardust
 
 ## Login with Google Auth and Firebase
-![stardust login](/stardust/stardust-login.PNG)
+![stardust login](stardust-login.PNG)
 
 ## Home Page
 ![stardust page](/stardust/stardust.PNG)
