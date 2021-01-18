@@ -1,0 +1,47 @@
+.login {
+  display: grid;
+  place-items: center;
+  height: 100vh;
+}
+
+.login > button {
+  width: 300px;
+  background-color: #2e2e40;
+  color: #eff2f5;
+  font-weight: 800;
+}
+
+.login > button:hover {
+  background-color: white;
+  color: #2e2e40;
+}
+
+.login > div {
+  display: flex;
+  flex-direction: column;
+}
+
+.login > div > img {
+  object-fit: contain;
+  height: 200px;
+  border-radius: 8px;
+  background: #c0ffe4;
+  background-image: radial-gradient(
+    farthest-corner at 34px 14px,
+    #a2e6c9 25%,
+    #1d8758 35%,
+    #d3ffec 100%
+  );
+  box-shadow: 0 0 20px 5px #c0ffe4;
+  animation: orb 4s infinite;
+}
+
+@keyframes orb {
+  0%,
+  100% {
+    box-shadow: 0 0 5px 2px #8fffcf;
+  }
+  50% {
+    box-shadow: 0 0 24px 4px #8fffcf;
+  }
+}

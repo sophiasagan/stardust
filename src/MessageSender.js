@@ -4,15 +4,25 @@ import VideocamOutlinedIcon from "@material-ui/icons/VideocamOutlined";
 import PhotoOutlinedIcon from "@material-ui/icons/PhotoOutlined";
 import InsertEmoticonIcon from "@material-ui/icons/InsertEmoticon";
 import { Avatar } from "@material-ui/core";
-// import db from "./firebase";
-// import firebase from "firebase";
+import { useStateValue } from "./StateProvider";
+import db from "./firebase";
+import firebase from "firebase";
 
 function MessageSender() {
   const [input, setInput] = useState("");
   const [imageUrl, setImageUrl] = useState("");
+  const [{ user }, dispatch] = useStateValue();
 
   const handleSubmit = (e) => {
     e.preventDefault();
+
+    db.collection("posts").add({
+      message: input,
+      timestamp: firebase.firestore.FieldValue.serverTimestamp(),
+      profilePic: user.photoURL,
+      username: user.displayName,
+      image: imageUrl,
+    });
 
     setInput('')
     setImageUrl('')
@@ -20,13 +30,13 @@ function MessageSender() {
   return (
     <div className="messageSender">
       <div className="messageSender__top">
-        <Avatar />
+        <Avatar src={user.photoURL} />
         <form>
           <input
             className="messageSender__input"
             value={input}
             onChange={(e) => setInput(e.target.value)}
-            placeholder={`What's on your mind?`}
+            placeholder={`How is life on the pale blue dot, ${user.displayName}?`}
           />
           <input
             value={imageUrl}
@@ -45,11 +55,11 @@ function MessageSender() {
         </div>
         <div className="messageSender__option">
           <PhotoOutlinedIcon />
-          <h3>Photo/Video</h3>
+          <h3>Photo</h3>
         </div>
         <div className="messageSender__option">
           <InsertEmoticonIcon />
-          <h3>Feeling/Activity</h3>
+          <h3>Mood</h3>
         </div>
       </div>
     </div>

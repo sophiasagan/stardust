@@ -7,6 +7,7 @@ import FlagIcon from "@material-ui/icons/Flag";
 import SubscriptionsOutlinedIcon from "@material-ui/icons/SubscriptionsOutlined";
 import StorefrontOutlinedIcon from "@material-ui/icons/StorefrontOutlined";
 import SupervisedUserCircleIcon from "@material-ui/icons/SupervisedUserCircle";
+import PeopleOutlineIcon from '@material-ui/icons/PeopleOutline';
 import CalendarTodayIcon from "@material-ui/icons/CalendarToday";
 import ImportContactsOutlinedIcon from "@material-ui/icons/ImportContactsOutlined";
 import RoomOutlinedIcon from "@material-ui/icons/RoomOutlined";
@@ -16,14 +17,16 @@ import AddIcon from "@material-ui/icons/Add";
 import NotificationsActiveIcon from "@material-ui/icons/NotificationsActive";
 import ForumIcon from "@material-ui/icons/Forum";
 import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
+import { useStateValue } from "./StateProvider";
 
 function Header() {
+  const [{ user }, dispatch] = useStateValue();
   return (
     <div className="header">
       <div className="header__left">
         <div className="header__logo">STARDUST</div>
         <div className="header__input">
-          <SearchIcon /> <input placeholder='Search' type="text" />
+          <SearchIcon /> <input placeholder="Search" type="text" />
         </div>
       </div>
 
@@ -31,24 +34,24 @@ function Header() {
         <div className="header__option header__option--active">
           <HomeIcon fontSize="large" />
         </div>
-        <div className="header__option">
+        {/* <div className="header__option">
           <FlagIcon fontSize="large" />
-        </div>
+        </div> */}
         <div className="header__option">
-          <SubscriptionsOutlinedIcon fontSize="large" />
-        </div>
-        <div className="header__option">
-          <StorefrontOutlinedIcon fontSize="large" />
+          <PeopleOutlineIcon fontSize="large" />
         </div>
         <div className="header__option">
           <SupervisedUserCircleIcon fontSize="large" />
+        </div>
+        <div className="header__option">
+          <StorefrontOutlinedIcon fontSize="large" />
         </div>
       </div>
 
       <div className="header__right">
         <div className="header__info">
-          <Avatar />
-          <h4>Sophia Jung</h4>
+          <Avatar src={user.photoURL}/>
+          <h4>{user.displayName}</h4>
         </div>
         <IconButton>
           <AddIcon />
