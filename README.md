@@ -1,4 +1,5 @@
 # stardust
+- facebook-esque social media prototype
 
 ## Login with Google Auth and Firebase
 ![stardust login](stardust-login.PNG)
